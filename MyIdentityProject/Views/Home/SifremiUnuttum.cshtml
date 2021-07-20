@@ -1,0 +1,66 @@
+﻿@model MyIdentityProject.ViewModels.ForgetPasswordModel
+
+@{
+    ViewData["Title"] = "SifremiUnuttum";
+
+
+}
+
+
+<hr />  
+
+<div class="row">
+    
+    <div class="col-md-4 offset-md-4 panel panel-default">
+        @if (ViewBag.IsProcessCompleted)
+        {
+
+
+            <div class="alert alert-success" role="alert">
+                Şifrenizi yenileme linki e-posta adresinize yollanmıştır.Lütfen e-postanızı kontrol ediniz.
+            </div>
+        }
+        else
+        {
+            <div class="p-3 mb-2 bg-dark text-white rounded" style="font-family :'Source Sans Pro'">Şifremi Unuttum</div>
+
+            <form asp-action="SifremiUnuttum">
+                <div class="shadow p-3 mb-5 bg-body rounded">
+                    <div class="alert alert-info align-middle">
+                        Lütfen Kayıtlı Email adresinizi şifre yenileme için giriniz.
+                        Şifre değiştirme Linki Eposta Adresinize gönderilecektir.
+                    </div>
+
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+
+                        <input type="submit" value="Create" class="btn btn-warning" />
+
+                    </div>
+                </div>
+
+
+
+            </form>
+
+        }
+
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

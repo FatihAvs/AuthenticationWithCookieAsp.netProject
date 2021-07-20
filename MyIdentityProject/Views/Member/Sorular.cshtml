@@ -1,0 +1,27 @@
+﻿@model QuesitonViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+<h1>Soru</h1>
+<p>@Model.Soruu.Soruu</p>
+
+
+<form asp-action="Sorular" method="post">
+    @foreach (var choice in Model.Secenekler)
+    {
+        <div class="form-group">
+
+            <input type="radio" id="male" name="@Model.Soruu.SoruId" value="@choice.ChoiceValue">
+            <label for="male">@choice.AChoice</label>
+            <br>
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Cevapla" class="btn btn-primary" />
+        </div>
+
+    }
+</form>

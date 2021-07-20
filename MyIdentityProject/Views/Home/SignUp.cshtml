@@ -1,0 +1,59 @@
+﻿@model MyIdentityProject.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "SignUp";
+
+
+
+}
+
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="shadow p-3 mb-5 bg-body rounded">
+            <div class="p-3 mb-2 bg-dark text-white rounded font-weight-bold " style="font-family :'Source Sans Pro'" >Kayıt Ol</div>
+             
+            <form asp-action="SignUp" method="Post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label"  ></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"  ></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label  "></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"  ></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Kayıt Ol" class="btn btn-warning" />
+
+                </div>
+                <hr />
+                <a asp-action="LogIn" class="btn btn-link">Zaten hesabın varmı? Giriş Yap</a>
+            </form>
+           
+        </div>
+    </div>
+    </div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

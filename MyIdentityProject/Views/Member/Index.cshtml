@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+*@
+@model UserViewIndexModel
+@{
+    Layout = "~/Views/Member/_MemberLayout.cshtml";
+}
+
+<h3 class=" text-center">Kullanıcı Bilgileri </h3>
+<div class="row">
+    <div class="col-3">
+
+        
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="@Model.userViewModel.UserPicture" alt="Card image cap">
+           
+            </div>
+       
+    </div>
+
+<div class="col-9 ">
+    <table class="table table-bordered table-striped">
+        <tr>
+
+            <th>Kullanıcı Adı</th>
+            <td>@Model.userViewModel.UserName</td>
+        </tr>
+        <tr>
+
+            <th>Email</th>
+            <td>@Model.userViewModel.Email</td>
+        </tr>
+
+        <tr>
+
+            <th>Telefon Numarası</th>
+            <td>@Model.userViewModel.PhoneNumber</td>
+        </tr>
+        <tr>
+
+            <th>Dogum Tarihi</th>
+            <td>@Model.userViewModel.DogumTarihi</td>
+        </tr>
+        <tr>
+
+            <th>Cinsiyet</th>
+            <td>@Model.userViewModel.Gender</td>
+        </tr>
+
+
+
+
+
+
+
+    </table>
+    <div class="row">
+        @foreach (var photo in Model.Photoss)
+        {
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@photo.PhotoPath" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.userViewModel.UserName</h5>
+                        <p class="card-text">@photo.PhotoDescribe</p>
+                        <p class="card-text">@photo.YuklemeTarihi</p>
+
+                        <a asp-action="PhotoDetail" asp-controller="member" class="btn btn-primary">Fotoğrafı Aç</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    </div>
+   
+
+</div>
+
+
+</div>

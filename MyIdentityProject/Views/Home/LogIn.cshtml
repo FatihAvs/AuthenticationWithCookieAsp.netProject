@@ -1,0 +1,49 @@
+﻿@model MyIdentityProject.ViewModels.LogInViewModel
+
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+
+
+    
+<hr /> 
+<div class="row">
+    <div class="col-md-4 offset-md-4 ">
+        <div class="shadow p-3 mb-5 bg-body rounded">
+            <div class="p-3 mb-2 bg-dark text-white rounded font-weight-bold" style="font-family :'Source Sans Pro'">Giriş Yap</div>
+            <form asp-action="LogIn" method="Post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label font-weight-normal " ></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label" ></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" asp-for="RememberMe"/>Beni Hatırla 
+
+                    <div class="form-group">
+                    </div>
+                    <input type="submit" value="Giriş Yap"
+                           class="btn btn-warning">
+
+
+                </div>
+                <a asp-action="SifremiUnuttum" class="btn btn-link">Şifreni mi Unuttun?</a><br />
+                <a asp-action="SignUp" class="btn btn-link">Bir Hesabınız yok mu? Yeni Hesap Oluşturun.</a>
+            </form>
+        </div>
+    </div>
+    </div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
